@@ -1,0 +1,33 @@
+/* Color for available label */
+.color__main-color-3 {
+  color: #2B71B8;
+}
+
+/* Border color screensaver layout when available */
+.screensaver__container--available {
+  border-color: #2B71B8;
+}
+
+/* Color for 'available label' and 'countdown number' if available */
+.room__container--available .room__container__status__title__label1,
+.room__container--available .room__container__status__countdown__hours__number,
+.room__container--available .room__container__status__countdown__minutes__number {
+  color: #2B71B8;
+}
+
+/* Color for 'minutes label' and 'hours label' if available */
+.room__container--available .room__container__status__countdown__hours__time,
+.room__container--available .room__container__status__countdown__minutes__time {
+  color: #2B71B8;
+  border: 1px solid transparent;
+  -moz-border-image: -moz-linear-gradient(top, #2B71B8 0, #2B71B8 100%);
+  -webkit-border-image: -webkit-linear-gradient(top, #2B71B8 0, #2B71B8 100%);
+  border-image: linear-gradient(to bottom, #2B71B8 0, #2B71B8 100%);
+  border-image-slice: 1;
+}
+
+/* Current time pin color when available */
+.bg__main-color-2,
+.timeline__content__now::before {
+  background-color: #2B71B8;
+}
