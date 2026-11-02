@@ -55,7 +55,7 @@ body::after {
   z-index: 2147483646;
   /* 16% (not center) shifts the image right so the logo, which sits
      slightly left of center in the source image, lands centered on screen */
-  background: #0A1C3A url("https://cdn.jsdelivr.net/gh/LECahill/crestron-css@main/KPSLifeWallpaper.png") 16% 50% / cover no-repeat;
+  background: #0A1C3A url("https://cdn.jsdelivr.net/gh/kps-life/kps-assets@main/KPSLifeWallpaper.png") 16% 50% / cover no-repeat;
   -webkit-animation: drift 60s ease-in-out infinite alternate;
   animation: drift 60s ease-in-out infinite alternate;
 }
