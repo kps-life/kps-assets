@@ -1,0 +1,103 @@
+/* ===== KPS Life static display theme ===== */
+
+/* Color for available label */
+.color__main-color-3 {
+  color: #2B71B8;
+}
+
+/* Border color screensaver layout when available */
+.screensaver__container--available {
+  border-color: #2B71B8;
+}
+
+/* Color for 'available label' and 'countdown number' if available */
+.room__container--available .room__container__status__title__label1,
+.room__container--available .room__container__status__countdown__hours__number,
+.room__container--available .room__container__status__countdown__minutes__number {
+  color: #2B71B8;
+}
+
+/* Color for 'minutes label' and 'hours label' if available */
+.room__container--available .room__container__status__countdown__hours__time,
+.room__container--available .room__container__status__countdown__minutes__time {
+  color: #2B71B8;
+  border: 1px solid transparent;
+  -moz-border-image: -moz-linear-gradient(top, #2B71B8 0, #2B71B8 100%);
+  -webkit-border-image: -webkit-linear-gradient(top, #2B71B8 0, #2B71B8 100%);
+  border-image: linear-gradient(to bottom, #2B71B8 0, #2B71B8 100%);
+  border-image-slice: 1;
+}
+
+/* Current time pin color when available */
+.bg__main-color-2,
+.timeline__content__now::before {
+  background-color: #2B71B8;
+}
+
+/* ===== Full-screen wallpaper ===== */
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #0A1C3A;  /* matches the image's navy, so no flashes while loading */
+}
+
+/* Wallpaper with a very slow drift/zoom.
+   Covers the scheduling UI and blocks touches to it. */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2147483646;
+  /* 16% (not center) shifts the image right so the logo, which sits
+     slightly left of center in the source image, lands centered on screen */
+  background: #0A1C3A url("https://cdn.jsdelivr.net/gh/LECahill/crestron-css@main/KPSLifeWallpaper.png") 16% 50% / cover no-repeat;
+  -webkit-animation: drift 60s ease-in-out infinite alternate;
+  animation: drift 60s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes drift {
+  from { -webkit-transform: scale(1); }
+  to   { -webkit-transform: scale(1.05); }
+}
+@keyframes drift {
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
+}
+
+/* Soft gold light sweep, echoing the gold line in the wave */
+body::before {
+  content: "";
+  position: fixed;
+  top: -20%;
+  left: 0;
+  width: 40vw;
+  height: 140vh;
+  z-index: 2147483647;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 210, 150, 0)    0%,
+    rgba(255, 210, 150, 0.07) 50%,
+    rgba(255, 210, 150, 0)    100%
+  );
+  -webkit-transform: translateX(-60vw) rotate(15deg);
+  transform: translateX(-60vw) rotate(15deg);
+  pointer-events: none;
+  -webkit-animation: sweep 18s ease-in-out infinite;
+  animation: sweep 18s ease-in-out infinite;
+}
+
+@-webkit-keyframes sweep {
+  0%           { -webkit-transform: translateX(-60vw) rotate(15deg); opacity: 1; }
+  35%          { -webkit-transform: translateX(140vw) rotate(15deg); opacity: 1; }
+  35.01%, 100% { -webkit-transform: translateX(-60vw) rotate(15deg); opacity: 0; }
+}
+@keyframes sweep {
+  0%           { transform: translateX(-60vw) rotate(15deg); opacity: 1; }
+  35%          { transform: translateX(140vw) rotate(15deg); opacity: 1; }
+  35.01%, 100% { transform: translateX(-60vw) rotate(15deg); opacity: 0; }
+}
